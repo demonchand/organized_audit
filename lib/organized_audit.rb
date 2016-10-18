@@ -1,4 +1,4 @@
-require 'rails/observers/active_model/active_model'
+# require 'rails/observers/active_model/active_model'
 require 'active_record'
 require "organized_audit/version"
 require "organized_audit/model_config"

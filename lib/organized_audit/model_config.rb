@@ -7,6 +7,7 @@ module OrganizedAudit
     module ClassMethods
 	    def customize_audits(options = {})
 	    	puts "Inside the Customeze Audits"
+	    	# puts options
 	    end
     end
   end
