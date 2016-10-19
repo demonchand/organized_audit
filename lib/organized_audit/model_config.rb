@@ -6,20 +6,24 @@ module OrganizedAudit
 
     module ClassMethods
       def customize_audits(options = {})
+        puts "Inside the Customeze Audits and its Initialized Yeah..."
         class_attribute :audit_options, instance_writer: false
 
         self.audit_options = options
-        puts "Inside the Customeze Audits"
 
-        include OrganizedAudit::ModelConfig::CustInstanceMethods
+        include OrganizedAudit::ModelConfig::OrganizedAuditInstanceMethods
       end
       # extend Audited::Auditor::AuditedClassMethods
     end
 
-    module CustInstanceMethods
-      def another_method
-        puts "Inside the another method"
-        puts audit_options
+    module OrganizedAuditInstanceMethods
+      def get_history
+        self.audits
+      end
+
+      private
+
+      def construct_query
       end
     end
   end
