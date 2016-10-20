@@ -15,9 +15,9 @@ module OrganizedAudit
       end
 
       def get_history(options={})
-        puts "Class method called."
+        # TODO: Yet to start
+        puts "History log triggered."
       end
-      # extend Audited::Auditor::AuditedClassMethods
     end
 
     module OrganizedAuditInstanceMethods
