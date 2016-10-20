@@ -5,11 +5,11 @@ module OrganizedAudit
     extend ActiveSupport::Concern
 
     module ClassMethods
-      def customize_audits(options = {})
+      def customize_audits(master_fields, rules=[], locale_option = :default_locale)
         puts "Inside the Customeze Audits and its Initialized Yeah..."
         class_attribute :audit_options, instance_writer: false
 
-        self.audit_options = options
+        self.audit_options = { master_fields: master_fields, rules: rules, locale_option: locale_option }
 
         include OrganizedAudit::ModelConfig::OrganizedAuditInstanceMethods
       end
@@ -18,7 +18,8 @@ module OrganizedAudit
 
     module OrganizedAuditInstanceMethods
       def get_history
-        self.audits
+        puts audit_options
+        # self.audits
       end
 
       private
